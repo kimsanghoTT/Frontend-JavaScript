@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>테마 변경하기</title>
+</head>
+<body>
+    <h1>밝은 테마 / 어두운 테마로 변경하기</h1>
+    <button onclick="밝은모드()">light 모드</button>
+    <button onclick="어두운모드()">dark 모드</button>
+
+    <script>/*script도 head나 body에 넣어도 되지만 한 곳에 모아놓는 것도 좋음*/
+        //버튼 클릭시 body에 있는 글자 색과 배경 색을 변경
+        //onclick에 작성한 기능명 작성
+        /*
+        function 기능명(){
+            기능을 클릭하거나 사용할 때 수행할 등작들 작성
+        }    */
+
+        
+        
+       // body 태그는 html 안에서 존재하는 이름을 뿐 script 안에선 존재하지 않음
+        const 바디 = document.querySelector("body");
+        
+        
+        function 어두운모드(){
+        //body 태그 안의 style 변경. 글자색을 변경하는 color 설정
+        //태그 안으로 무언가를 작성할 때는 "." 작성
+        바디.style.color="white"; //글자색을 흰색으로 변경
+
+        //body 태그 안의 style 변경. 배경색을 변경하는 backgroundcolor 설정
+        바디.style.backgroundColor="black";
+
+        
+        
+        }
+        function 밝은모드() {
+            바디.style.color="black";
+            바디.style.backgroundColor="white"
+        }
+    </script>
+</body>
+</html>

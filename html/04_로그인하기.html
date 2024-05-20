@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+</head>
+<body>
+    <h1>연산자를 통한 로그인하기</h1>
+    <pre>
+        - 입력된 Id가 member 이고
+        - 입력된 비밀번호가 khzzang이 맞을 경우
+        alert("로그인 성공")이 보일 것
+
+        - id 또는 비밀번호가 하나라도 일치하지 않으면
+        alert("아이디 또는 비밀번호가 일치하지 않습니다") 출력
+    </pre>
+
+    <div>
+        <label>ID : <input type="text" id="inputId"></label><br>
+        <label>Password : <input type="password" id="inputPw"></label><br>
+        <button onclick="로그인버튼()">로그인</button>
+    </div>
+    <script>
+        //로그인 기능 만들기
+        const 아이디값 = document.getElementById("inputId")
+        //html 코딩 안에서 가지고 옴(get) -> 태그에서(element) ->
+        //id="inputId"인 값을(ById)
+        const 비밀번호값 = document.getElementById("inputPw")
+        function 로그인버튼(){
+            const 아이디 = 아이디값.value;
+            const 비번 = 비밀번호값.value;
+
+            //const 로그인메세지; 
+            //const : 변수값이 변하면 안되기 때문에 변수명만 우선으로 작성 불가
+            //만약 아이디가 member이고 사용자가 입력한 비밀번호가 khzzang이면 성공
+            //다르다면 실패 메세지 출력
+            if(아이디 == 'member' && 비번 == 'khzzang'){
+                alert("로그인에 성공했습니다.");
+            }
+            else{
+                alert("아이디 또는 비밀번호가 일치하지 않습니다.");
+            }
+
+        }
+    </script>
+
+</body>
+</html>
