@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>조건문</title>
+</head>
+<body>
+    <h1>조건문</h1>
+    <pre>
+        프로그래밍 코드가 해석되는 순서를 제어하는 제어문의 한 종류로
+        작성된 조건식에 따라 수행되는 코드를 변경하는 구문
+    </pre>
+    <hr>
+    <h3>if(만약에) 문</h3>
+    <pre>
+        <code>
+            if(조건식){
+                조건식이 true일 경우 실행할 코드
+            }
+        </code>
+        * 조건식 : 결과가 true, false인 식
+    </pre>
+    <input type="number" id="인풋1">
+    <button onclick="체크1()">양수인지 검사하기</button>
+    <script>
+        
+        const 인풋1 = document.getElementById("인풋1");                
+        function 체크1(){
+            const 숫자 = 인풋1.value;
+            //input에서 입력받은 값이 0보다 커서 양수이면 양수입니다 출력
+            if(숫자 > 0 ){
+                alert("양수입니다.");
+            }
+            if(숫자<=0){
+                alert("양수가 아닙니다.");
+            }
+        }
+    </script>
+    <hr>
+    <h3>if - else문</h3>
+    <pre>
+        <code>
+            if(조건식){
+                조건식이 true일 경우 수행할 코드;
+            }
+            else{
+                조건식이 false일 경우 수행할 코드;
+            }
+        </code>
+
+        * else는 조건식을 작성하는 ()가 없음
+    </pre>
+</body>
+</html>
