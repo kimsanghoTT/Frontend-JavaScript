@@ -50,5 +50,83 @@
 
         * else는 조건식을 작성하는 ()가 없음
     </pre>
+    <h5>0~100 사이의 랜덤 숫자를 발생시켜서 홀/짝 판별</h5>
+    <button onclick="체크2()">확인하기</button>
+    <script>
+        //난수 : 정해진 범위 내에서 임의로 추출된 수
+        /*
+        
+        Math.floor() : 주어진 정수와 같거나 작은 정수 중에서 가장 큰 수 반환
+            -> 내림
+
+        Math.ceil() : 주어진 정수와 같거나 큰 정수 중에서 가장 작은 수 반환
+            -> 올림
+            
+        Math.round() : 입력한 값을 가장 가까운 정수로 반환
+            -> 반올림
+
+        random으로 나온 실수를 정수로 반환하고 싶다면 위 세가지 중에
+        ()안에 Math.random()를 넣어주면 됨
+            
+        */
+        const 숫자 = Math.floor(Math.random()*101);//0~100 까지 101가지 숫자 중 하나 추출
+
+        function 체크2() {
+            if(숫자 % 2 == 0){
+            alert(숫자 + "는(은) 짝수입니다.");
+            }
+            else{
+                alert(숫자 + "는(은) 홀수입니다.");
+            }
+        }
+    </script>
+
+    <h3>if - else if - else</h3>
+    <pre>
+          <code>
+            if(조건식){
+                조건식1이 참일 경우 실행;
+            }
+            else if(조건식2){
+                조건식1이 거짓이지만 조건식2가 참일 경우 실행
+            }
+            else{
+                조건식1, 2가 모두 거짓일 경우 실행
+            }
+          </code>  
+    </pre>
+    <h5>어린이, 청소년, 성인 구분하기</h5>
+    <pre>
+        나이를 입력받아
+        0~13 : 어린이
+        14~19 : 청소년
+        20~ : 성인
+    </pre>
+    나이 : <input type="number" id="나이값">
+    <button onclick="체크4()">확인하기</button>
+    <script>
+
+        function 체크4() {
+            const age = document.getElementById("나이값");
+            const 나이 = age.value;
+            //const age = document.getElementById("나이값").value; 
+            //  -> 위 두 개를 합친 코드
+
+            let 메세지;
+
+            if(나이 >= 0 && 나이 <14){
+                메세지 = "어린이";
+            }
+            else if(나이 >= 14 && 나이<20){
+                메세지 = "청소년";
+            }
+            else{
+                메세지 = "성인"
+            }
+            console.log("키보드로 입력받은 나이는 " + 나이);
+                alert(메세지 +"입니다.");
+        }
+    </script>
+    
 </body>
 </html>
