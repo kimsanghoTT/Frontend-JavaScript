@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>실습문제</title>
+    <style>
+        div{
+            width: 80%;
+            height: 80%;
+            border-radius: 10px;
+            margin: 0 auto;
+            padding: 100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>실습 1</h1>
+        <h2>테마 변경</h2>
+        <button onclick="light()">밝은 모드</button>
+        <button onclick="dark()">어두운 모드</button>
+        <button onclick="pink()">분홍 모드</button>
+        <button onclick="green()">초록 모드</button>
+    </div>
+
+    <script>
+        const div = document.querySelector("div");
+
+        function light() {
+            div.style.backgroundColor="white";
+            div.style.color="black";
+        }
+        function dark(){
+            div.style.backgroundColor="black";
+            div.style.color="white";
+        }
+        function pink() {
+            div.style.backgroundColor="lightsteelblue";
+            div.style.color="lightpink";
+        }
+        function green() {
+            div.style.backgroundColor="lightgreen";
+            div.style.color="yellowgreen";
+        }
+    </script>
+</body>
+</html>
