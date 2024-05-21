@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .hidden{
+            display: none;
+        }
+        .container{
+            width: 600px;
+            border: 3px solid black;
+            border-radius: 5px;
+            margin: 0 10px;
+            padding: 20px;
+        }
+        input{
+            width: 400px;
+            padding: 5px;
+        }
+        button{
+            background-color: white;
+            border: 4px solid blue;
+            color: blue;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <label>이름 : </label>
+            <input type="text" id="user_name" required><br>
+            <label>이메일 :</label>
+            <input type="email" id="user_email" required><br>
+            <label>비밀번호 : </label>
+            <input type="password"name="user_pw" required><br>
+            <label>비밀번호 확인 :</label>
+            <input type="password" name="user_pw_confirm" required><br>
+
+            <button onclick="중복확인()">중복확인</button>
+            <button onclick="비밀번호일치확인()">비밀번호일치확인</button>
+        </form>
+        <div id="이용약관">
+            <p>이 부분은 이용약관입니다.</p>
+        </div>
+        <button onclick="이용약관접기()">접기</button>
+    </div>
+    <script>
+        function 중복확인() {
+            const name = document.getElementById("user_name").value;
+            const email = document.getElementById("user_email").value;
+            
+            if(name == "고영희" && email == "ko@kh.kh"){
+                alert("이미 가입된 회원입니다.");
+            }
+            else{
+                alert("가입완료");
+            }
+        }
+
+        function 이용약관접기() {
+            const fold = document.getElementById("이용약관");
+            if(fold.classList.contains("hidden")){
+                fold.classList.remove("hidden");
+            }
+            else{
+                fold.classList.add("hidden");
+            }
+        }
+    </script>
+</body>
+</html>

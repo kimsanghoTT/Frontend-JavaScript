@@ -14,6 +14,24 @@
             <li>짜장면</li>
         </ul>
     </div>
+    <style>
+        li{
+            list-style: none;
+        }
+        button{
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        /*버튼 위에 마우스 올릴 떄 변화*/
+        button:hover{
+            background-color: red;
+            color: white;
+        }
+    </style>
     <button onclick="메뉴선택()">메뉴 선택하기</button>
     <button onclick="메뉴추가()">메뉴 추가하기</button>
     <script>
@@ -51,7 +69,8 @@
 
             //li태그를 선택해서 숫자 배열로 만들기
             const 메뉴들 = document.getElementsByTagName("li");
-            console.log("메뉴들 :" + 메뉴들)
+
+            
             //모든 메뉴를 보길 원한다면 for문 사용
 
             const 랜덤숫자 = Math.floor(Math.random()*메뉴들.length);
