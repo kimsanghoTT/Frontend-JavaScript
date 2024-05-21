@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>점심 메뉴 고르기</title>
+</head>
+<body>
+    <h2>점심 메뉴 고르기</h2>
+    <div id="menu">
+        <h3>메뉴리스트</h3>
+        <ul id="menu-list">
+            <li>피자</li>
+            <li>햄버거</li>
+            <li>짜장면</li>
+        </ul>
+    </div>
+    <button onclick="메뉴선택()">메뉴 선택하기</button>
+    <button onclick="메뉴추가()">메뉴 추가하기</button>
+    <script>
+        function 메뉴추가() {
+            const menulist = document.getElementById("menu-list");
+
+            //메뉴 추가 프롬포트 추가하기
+            const 신메뉴 = prompt("새로운 메뉴를 입력하세요");
+
+            if(신메뉴){//확인을 누르면 true
+
+                //li태그 추가하기
+                const newItem = document.createElement("li");
+
+                //만들어 놓은 li태그 안에 프롬포트로 추가할 내용 적은 것
+                newItem.textContent = 신메뉴; 
+                menulist.appendChild(newItem);
+            }
+        }
+        /*
+        
+        creatElement : 태그 생성하기. 닫는 태그 표시 안해도 됨
+            ex) div 태그를 생성하기 
+                document.createElement('div');
+        
+        appendChild : 눈에 보이게끔 부모 태그에 새로 만든 자식태그를 추가
+                        
+                                ex) menulist.appendChild(newItem);
+        id값 제거하고 작성하기          ul.  appendChild(li);
+        menulist = ul 태그 값
+        newItem = 새로 추가되는 li 태그 값
+        */
+        function 메뉴선택() {
+            const menulist = document.getElementById("menu-list");
+
+            //li태그를 선택해서 숫자 배열로 만들기
+            const 메뉴들 = document.getElementsByTagName("li");
+            console.log("메뉴들 :" + 메뉴들)
+            //모든 메뉴를 보길 원한다면 for문 사용
+
+            const 랜덤숫자 = Math.floor(Math.random()*메뉴들.length);
+            console.log("랜덤숫자 : " + 랜덤숫자);
+            const 메뉴선택 = 메뉴들[랜덤숫자];
+            console.log("선택된 메뉴 : " + 메뉴선택.innerText);
+            alert("오늘의 점심은 " + 메뉴선택.innerText);
+        }
+
+    </script>
+    
+</body>
+</html>
