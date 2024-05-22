@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>비밀번호 유효성 검사</title>
+    <style>
+        .check{
+            color: green;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>회원 가입</h2>
+    <form action="#" name="signupForm">
+        <h3>비밀번호 : </h3>
+        <input type="text" class="signup-input" id="inputPw" name="user_pw">
+        <br>
+        <span class="input-result">영어 8~20(단모음, 단자음 제외)</span>
+    </form>
+    <script>
+        const checkList ={
+            "inputPw": false
+        }
+        const inputPw = document.querySelector("#inputPw");
+
+        inputPw.addEventListener("input", e=>{
+
+            const value = e.target.value;
+            const span = e.target.nextElementSibling.nextElementSibling;
+
+            if(value.trim().length == 0){
+                span.textContent = "6~16자의 영어로 작성해주십시오";
+
+                span.classList.remove("check", "error");
+                e.target.value = "";
+                checkList["inputPw"] = false;
+                return;
+            }
+            const 비밀번호정규식 = /^[A-Za-z0-9]{8,20}$/;
+
+            if((비밀번호정규식).test(value)){
+                span.textContent = "유효한 비밀번호입니다.";
+                span.classList.add("check");
+                span.classList.remove("error");
+                checkList["inputPw"] = true;
+            }
+            else{
+                span.textContent = "유효하지 않은 비밀번호입니다.";
+                span.classList.add("error");
+                span.classList.remove("check");
+                checkList["inputPw"] = false;
+            }
+        });
+
+    </script>
+</body>
+</html>

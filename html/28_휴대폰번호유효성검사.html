@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>번호 유효성 검사</title>
+    <style>
+        .check{
+            color: green;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>회원 가입</h2>
+    <form action="#" name="signupForm">
+        <h3>휴대폰 번호 : </h3>
+        <input type="text" class="signup-input" id="inputPhone" name="user_phone">
+        <br>
+        <span class="input-result">11개의 숫자로 휴대폰 번호를 입력해주세요.</span>
+    </form>
+    <script>
+        const checkList ={
+            "inputPhone": false
+        }
+        const inputPhone = document.querySelector("#inputPhone");
+
+        inputPhone.addEventListener("input", e=>{
+
+            const value = e.target.value;
+            const span = e.target.nextElementSibling.nextElementSibling;
+
+            if(value.trim().length == 0){
+                span.textContent = "11자의 숫자로 작성해주십시오";
+
+                span.classList.remove("check", "error");
+                e.target.value = "";
+                checkList["inputPhone"] = false;
+                return;
+            }
+            const 번호정규식 = /^\d{3}-\d{3,4}-\d{4}$/;
+
+            if((번호정규식).test(value)){
+                span.textContent = "유효한 번호입니다.";
+                span.classList.add("check");
+                span.classList.remove("error");
+                checkList["inputPhone"] = true;
+            }
+            else{
+                span.textContent = "유효하지 않은 번호입니다.";
+                span.classList.add("error");
+                span.classList.remove("check");
+                checkList["inputPhone"] = false;
+            }
+        });
+
+    </script>
+</body>
+</html>
