@@ -16,24 +16,27 @@
             cursor: pointer;
 
         }
-
+        .hidden{
+            display: none;
+        }
     </style>
 </head>
 <body>
     <h1>점심 메뉴 고르기</h1>
-    <div>
-        
+    <div>     
         <ul>
             <h3>메뉴리스트</h3>
-            <div class="menu" onclick="showSubMenu('중식')"><li>중식</li></div>
-            <div class="menu" onclick="showSubMenu('한식')"><li>한식</li></div>
-            <div class="menu" onclick="showSubMenu('일식')"><li>일식</li></div>
+            <div onclick="showSubMenu('중식')"><li>중식</li></div>
+            <div onclick="showSubMenu('한식')"><li>한식</li></div>
+            <div onclick="showSubMenu('일식')"><li>일식</li></div>
         </ul>
-
     </div>
-    
-    <h2 id="submenu-title">일식 메뉴</h2>
-    <ul id="submenu-list"></ul>
+
+    <div class="hidden" id="submenu">
+        <h2 id="submenu-title"></h2>
+        <ul id="submenu-list"></ul>
+    </div>
+
 
 
     
