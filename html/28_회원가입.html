@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원 가입</title>
+    <style>
+        .check{
+            color: green;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>회원 가입</h2>
+    <form action="#" name="signupForm">
+        <h3>이름 : </h3>
+        <input type="text" class="signup-input" id="inputName" name="user_name">
+        <br>
+        <span class="input-result">한글 2~5자(단모음, 단자음 제외)</span>
+
+        <h3>아이디 : </h3>
+        <input type="text" class="signup-input" id="inputId" name="user_id">
+        <br>
+        <span class="input-result">영어 6~16(단모음, 단자음 제외)</span>
+
+        <h3>비밀번호 : </h3>
+        <input type="password" class="signup-input" id="inputPw" name="user_pw">
+        <br>
+        <span class="input-result">영어 8~20(단모음, 단자음 제외)</span>
+
+        <h3>휴대폰 번호 : </h3>
+        <input type="text" class="signup-input" id="inputPhone" name="user_phone">
+        <br>
+        <span class="input-result">11개의 숫자로 휴대폰 번호를 입력해주세요.</span>
+
+        <h3>생년월일 : </h3>
+        <input type="text" class="signup-input" id="inputYear" name="user_phone">
+        <br>
+        <span class="input-result">생년월일을 입력해주세요.</span>
+    </form>
+    <script>
+        const checkList ={
+            "inputName": false,
+            "inputId": false,
+            "inputPw": false,
+            "inputPhone": false,
+            "inputYear": false
+        }
+        const inputName = document.querySelector("#inputName");
+        const inputId = document.querySelector("#inputId");
+        const inputPw = document.querySelector("#inputPw");
+        const inputPhone = document.querySelector("#inputPhone");
+        const inputYear = document.querySelector("#inputYear");
+
+
+
+        inputName.addEventListener("input", e =>{
+
+            const value = e.target.value;
+            const span = e.target.nextElementSibling.nextElementSibling;
+
+            if(value.trim().length == 0){
+                span.textContent = "한글 2~5(단모음, 단자음 제외)자로 적어주세요";
+                span.classList.remove("check", "error");
+                e.target.value= "";
+                checkList["inputName"] = false;
+                return;
+            }
+            const 한글정규식 = /^[가-힣]{2,5}$/;
+
+
+            if((한글정규식).test(value)){
+                span.textContent = "유효한 이름의 형식입니다.";
+                span.classList.add("check");
+                span.classList.remove("error");
+                checkList["inputName"] = true;
+            }
+            else{
+                span.textContent = "유효하지 않은 이름의 형식입니다.";
+                span.classList.add("error");
+                span.classList.remove("check");
+                checkList["inputName"] = false;
+            }
+        });
+
+        inputId.addEventListener("input", e =>{
+            const value = e.target.value;
+            const span = e.target.nextElementSibling.nextElementSibling;
+
+            if(value.trim().length == 0){
+                span.textContent = "6자 이상의 영어를 적어주세요.";
+                span.classList.remove("check","error");
+                e.target.value="";
+                checkList["inputId"] = false;
+                return;
+            }
+            const 영어정규식 = /^[A-Za-z0-9]{6,16}$/;
+
+            if((영어정규식).test(value)){
+                span.textContent = "유효한 아이디 입니다.";
+                span.classList.add("check");
+                span.classList.remove("error");
+                checkList["inputId"] = true;
+            }
+            else{
+                span.textContent = "유효하지 않은 아이디입니다.";
+                span.classList.add("error");
+                span.classList.remove("check");
+                checkList["inputId"] = false;
+            }
+        });
+
+        inputPw.addEventListener("input", e =>{
+
+            const value = e.target.value;
+            const span = e.target.nextElementSibling.nextElementSibling;
+
+            if(value.trim().length == 0){
+                span.textContent = "8~20글자의 영어로 입력해주십시오";
+                span.classList.remove("check", "error");
+                e.target.value ="";
+                checkList["inputPw"] = false;
+                return;
+            }
+            const 비밀번호정규식 = /^[A-Za-z0-9]{8,20}$/;
+
+            if((비밀번호정규식).test(value)){
+                span.textContent = "유효한 비밀번호입니다.";
+                span.classList.add("check");
+                span.classList.remove("error");
+                checkList["inputPw"] = true;
+            }
+            else{
+                span.textContent = "유효한 비밀번호가 아닙니다.";
+                span.classList.add("error");
+                span.classList.remove("check");
+                checkList["inputPw"] = false;
+            }
+        });
+
+        inputPhone.addEventListener("input", e =>{
+            const value = e.target.value;
+            const span = e.target.nextElementSibling.nextElementSibling;
+
+            if(value.trim().length == 0){
+                span.textContent = "-제외 11자리의 번호를 입력해주세요";
+                span.classList.remove("check","error");
+                e.target.value = "";
+                checkList["inputPhone"] = false;
+            }
+
+            const 번호정규식 = /^\d{3}\d{3,4}\d{4}$/;
+
+            if((번호정규식).test(value)){
+                span.textContent = "유효한 번호입니다.";
+                span.classList.add("check");
+                span.classList.remove("error");
+                checkList["inputPhone"] = true;
+            }
+            else{
+                span.textContent = "유효하지 않은 번호입니다.";
+                span.classList.add("error");
+                span.classList.remove("check");
+                checkList["inputPhone"] = false;
+            }
+        });
+
+        inputYear.addEventListener("input", e =>{
+            const value = e.target.value;
+            const span = e.target.nextElementSibling.nextElementSibling;
+
+            if(value.trim().length == 0){
+                span.textContent = "생년월일 8자를 정확히 입력해주세요.";
+
+                span.classList.remove("check", "error");
+                e.target.value = "";
+                checkList["inputYear"] = false;
+                return;
+            }
+            const 생년월일정규식 = /^(19|20)\d{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
+
+            if((생년월일정규식).test(value)){
+                span.textContent = "유효한 생일입니다.";
+                span.classList.add("check");
+                span.classList.remove("error");
+                checkList["inputYear"] = true;
+            }
+            else{
+                span.textContent = "유효하지 않은 생일입니다.";
+                span.classList.add("error");
+                span.classList.remove("check");
+                checkList["inputYear"] = false;
+            }
+        });
+    </script>
+</body>
+</html>
