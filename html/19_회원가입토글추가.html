@@ -3,30 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <style>
-        .hidden{
-            display: none;
-        }
-        .container{
-            width: 600px;
-            border: 3px solid black;
-            border-radius: 5px;
-            margin: 0 10px;
-            padding: 20px;
-        }
-        input{
-            width: 400px;
-            padding: 5px;
-        }
-        button{
-            background-color: white;
-            border: 4px solid blue;
-            color: blue;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="../css/19_회원가입토글추가.css">
 </head>
 <body>
     <div class="container">
@@ -48,28 +25,6 @@
         </div>
         <button onclick="이용약관접기()">접기</button>
     </div>
-    <script>
-        function 중복확인() {
-            const name = document.getElementById("user_name").value;
-            const email = document.getElementById("user_email").value;
-            
-            if(name == "고영희" && email == "ko@kh.kh"){
-                alert("이미 가입된 회원입니다.");
-            }
-            else{
-                alert("가입완료");
-            }
-        }
-
-        function 이용약관접기() {
-            const fold = document.getElementById("이용약관");
-            if(fold.classList.contains("hidden")){
-                fold.classList.remove("hidden");
-            }
-            else{
-                fold.classList.add("hidden");
-            }
-        }
-    </script>
+    <script src="../js/19_회원가입토글추가.js"></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+li{
+    list-style: none;
+    color: black;
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+    width: 400px;
+    background-color: rgb(181, 178, 178);
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.hidden{
+    display: none;
+}
