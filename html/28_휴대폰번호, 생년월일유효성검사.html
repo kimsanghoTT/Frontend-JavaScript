@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>번호 유효성 검사</title>
+    <style>
+        .check{
+            color: green;
+        }
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>회원 가입</h2>
+    <form action="#" name="signupForm">
+        <h3>휴대폰 번호 : </h3>
+        <input type="text" class="signup-input" id="inputPhone" name="user_phone">
+        <br>
+        <span class="input-result">휴대폰 번호를 입력하세요</span>
+
+        <h3>생년월일 : </h3>
+        <input type="text" class="signup-input" id="inputBirth" name="user_birth">
+        <br>
+        <span class="input-result">생년월일을 입력해주세요.</span>
+    </form>
+    <script>
+        const checkList ={
+            "inputPhone": false,
+            "inputId" : false,
+            "inputPhone" : false,
+            "inputBirth" : false
+
+        }
+        const inputPhone = document.querySelector("#inputPhone");
+        const inputBirth = document.querySelector("#inputBirth");
+
+        inputPhone.addEventListener("input", e=>{
+
+            const value = e.target.value;
+            const span = e.target.nextElementSibling.nextElementSibling;
+
+            if(value.trim().length == 0){
+                span.textContent = "휴대폰 번호를 '-'를 포함해 입력해주세요";
+
+                span.classList.remove("check", "error");
+                e.target.value = "";
+                checkList["inputPhone"] = false;
+                return;
+            }
+            const 번호정규식 = /^\d{3}-\d{3,4}-\d{4}$/;
+                                // \d : 숫자문자 {0 - 9} 표현
+                                // {3} : 3자리 숫자
+                                // '-' 중간에 '-' 넣으라는 뜻
+                                //    /^\d{11}$/ : '-' 없이 11자리 입력
+            if(번호정규식.test(value)){
+                span.textContent = "유효한 번호입니다.";
+                span.classList.add("check");
+                span.classList.remove("error");
+                checkList["inputPhone"] = true;
+            }
+            else{
+                span.textContent = "유효하지 않은 번호입니다.";
+                span.classList.add("error");
+                span.classList.remove("check");
+                checkList["inputPhone"] = false;
+            }
+        });
+
+        inputBirth.addEventListener("input", e=>{
+            const value = e.target.value;
+            const span = e.target.nextElementSibling.nextElementSibling;
+
+            if(value.trim().length == 0){
+
+                span.textContent = "생년월일을 정확히 입력해주세요.";
+                span.classList.remove("check", "error");
+                e.target.value = "";
+                checkList["inputBirth"] = false;
+                return;
+            }
+            const 생년월일정규식 = /^(19|20)\d{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
+                                    // (19|20) : 19 또는 20으로 시작한느 부분을 매칭. 
+                                    //           1900년대 또는 2000년대
+                                    // (0[1-9]|1[0-2]) : 01 ~ 09 또는 10 ~ 12 -> 월
+                                    // (0[1-9]|[1-2][0-9]|3[0-1]) : 01~09 또는 10 ~ 29 또는 30 ~ 31 -> 일
+                                    // /^(19|20)\d{6}$/ -> 1900~2000년개 이후 6자리 작성
+                                    // /^\d{8}$/ -> 생년월일 '-' 뺴고 8자리 입력
+
+            if(생년월일정규식.test(value)){
+                span.textContent = "유효한 생일입니다.";
+                span.classList.add("check");
+                span.classList.remove("error");
+                checkList["inputBirth"] = true;
+            }
+            else{
+                span.textContent = "유효하지 않은 생일입니다.";
+                span.classList.add("error");
+                span.classList.remove("check");
+                checkList["inputBirth"] = false;
+            }
+        });
+    </script>
+</body>
+</html>

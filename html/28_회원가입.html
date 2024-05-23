@@ -16,7 +16,7 @@
     <h2>회원 가입</h2>
     <form action="#" name="signupForm">
         <h3>이름 : </h3>
-        <input type="text" class="signup-input" id="inputName" name="user_name">
+        <input type="text" class="signup-input" id="inputName" name="user_name" placeholder="홍길동">
         <br>
         <span class="input-result">한글 2~5자(단모음, 단자음 제외)</span>
 
@@ -31,12 +31,12 @@
         <span class="input-result">영어 8~20(단모음, 단자음 제외)</span>
 
         <h3>휴대폰 번호 : </h3>
-        <input type="text" class="signup-input" id="inputPhone" name="user_phone">
+        <input type="text" class="signup-input" id="inputPhone" name="user_phone" placeholder="01012345678">
         <br>
-        <span class="input-result">11개의 숫자로 휴대폰 번호를 입력해주세요.</span>
+        <span class="input-result">휴대폰 번호를 입력해주세요.</span>
 
         <h3>생년월일 : </h3>
-        <input type="text" class="signup-input" id="inputYear" name="user_phone">
+        <input type="text" class="signup-input" id="inputBirth" name="user_birth" placeholder="19900101">
         <br>
         <span class="input-result">생년월일을 입력해주세요.</span>
     </form>
@@ -46,13 +46,13 @@
             "inputId": false,
             "inputPw": false,
             "inputPhone": false,
-            "inputYear": false
+            "inputBirth": false
         }
         const inputName = document.querySelector("#inputName");
         const inputId = document.querySelector("#inputId");
         const inputPw = document.querySelector("#inputPw");
         const inputPhone = document.querySelector("#inputPhone");
-        const inputYear = document.querySelector("#inputYear");
+        const inputBirth = document.querySelector("#inputBirth");
 
 
 
@@ -71,7 +71,7 @@
             const 한글정규식 = /^[가-힣]{2,5}$/;
 
 
-            if((한글정규식).test(value)){
+            if(한글정규식.test(value)){
                 span.textContent = "유효한 이름의 형식입니다.";
                 span.classList.add("check");
                 span.classList.remove("error");
@@ -96,9 +96,9 @@
                 checkList["inputId"] = false;
                 return;
             }
-            const 영어정규식 = /^[A-Za-z0-9]{6,16}$/;
+            const EngRegExp = /^[A-Za-z0-9]{6,16}$/;
 
-            if((영어정규식).test(value)){
+            if(EngRegExp.test(value)){
                 span.textContent = "유효한 아이디 입니다.";
                 span.classList.add("check");
                 span.classList.remove("error");
@@ -124,9 +124,9 @@
                 checkList["inputPw"] = false;
                 return;
             }
-            const 비밀번호정규식 = /^[A-Za-z0-9]{8,20}$/;
+            const PwRegExp = /^[A-Za-z0-9]{8,20}$/;
 
-            if((비밀번호정규식).test(value)){
+            if(PwRegExp.test(value)){
                 span.textContent = "유효한 비밀번호입니다.";
                 span.classList.add("check");
                 span.classList.remove("error");
@@ -145,15 +145,15 @@
             const span = e.target.nextElementSibling.nextElementSibling;
 
             if(value.trim().length == 0){
-                span.textContent = "-제외 11자리의 번호를 입력해주세요";
+                span.textContent = "-제외 최대11자리의 번호를 입력해주세요";
                 span.classList.remove("check","error");
                 e.target.value = "";
                 checkList["inputPhone"] = false;
             }
 
-            const 번호정규식 = /^\d{3}\d{3,4}\d{4}$/;
+            const PhoneRegExp = /^\d{10,11}$/;
 
-            if((번호정규식).test(value)){
+            if(PhoneRegExp.test(value)){
                 span.textContent = "유효한 번호입니다.";
                 span.classList.add("check");
                 span.classList.remove("error");
@@ -167,7 +167,7 @@
             }
         });
 
-        inputYear.addEventListener("input", e =>{
+        inputBirth.addEventListener("input", e =>{
             const value = e.target.value;
             const span = e.target.nextElementSibling.nextElementSibling;
 
@@ -176,22 +176,22 @@
 
                 span.classList.remove("check", "error");
                 e.target.value = "";
-                checkList["inputYear"] = false;
+                checkList["inputBirth"] = false;
                 return;
             }
-            const 생년월일정규식 = /^(19|20)\d{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
+            const YearRegExp = /^(19|20)\d{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
 
-            if((생년월일정규식).test(value)){
+            if(YearRegExp.test(value)){
                 span.textContent = "유효한 생일입니다.";
                 span.classList.add("check");
                 span.classList.remove("error");
-                checkList["inputYear"] = true;
+                checkList["inputBirth"] = true;
             }
             else{
                 span.textContent = "유효하지 않은 생일입니다.";
                 span.classList.add("error");
                 span.classList.remove("check");
-                checkList["inputYear"] = false;
+                checkList["inputBirth"] = false;
             }
         });
     </script>
