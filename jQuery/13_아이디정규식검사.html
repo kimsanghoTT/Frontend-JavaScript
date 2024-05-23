@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>아이디 정규식 검사</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#username").on("input", function(){
+                
+                const username = $(this).val();
+                const RegExp = /^[a-z0-9]{6,16}$/ //영어 소문자와 숫자로 이루어진 6~16글자
+
+                if(RegExp.test(username)){
+                    $("#msg").text("올바른 형식의 아이디입니다.")
+                    .css("color", "green");
+                }
+                else{
+                    $("#msg")
+                    .text("아이디는 소문자와 숫자를 섞어 6~16사이의 글자로 만들어주세요.")
+                    .css("color","red");
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <label>아이디 : </label>
+    <input type="text" id="username" required>
+    <br>
+    <span id="msg"></span>
+</body>
+</html>
