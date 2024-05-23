@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>휴대폰 검색</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#searchBox").keyup(function(){
+                const searchBox = $(this).val();
+                var searchResult;
+                $("li").each(function(){
+                    var phoneName = $(this).text();
+                    
+                    if(phoneName.indexOf(searchBox) === -1){
+                        $(this).hide();
+                    }
+                    else{
+                        $(this).show();
+                        searchResult = true;
+                    }
+                })
+                if(searchResult){
+                    $("#searchResult").hide();
+                }
+                else{
+                    $("#searchResult").show();
+                }
+            })
+        })
+    </script>
+    <style>
+            .컨테이너{
+                width: 600px;
+                margin:  20px auto;
+                padding: 20px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 0 10px #ccc;
+    
+            }
+            #searchBox{
+                width: 95%;
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+            }
+            ul{
+                list-style: none;
+                padding: 0;
+                margin: 0;
+    
+            }
+            li{
+                padding: 15px;
+                border-bottom: 1px solid #ccc;
+                background-color: white;
+            }
+            body{
+                background-color: aliceblue;
+            }
+
+            #searchResult{
+                display: none; /* 검색결과없음 숨기기*/
+            }
+            input{
+                text-align: center;
+            }
+    </style>
+</head>
+<body>
+    <div class="컨테이너">
+        <input type="text" id="searchBox" placeholder="검색할 휴대폰 기종을 입력해주세요">
+        <ul id="phoneList">
+            <li>Galaxy S21</li>
+            <li>iPhone 12</li>
+            <li>Google Pixel 5</li>
+            <li>OnePlus 9</li>
+            <li>Xiaomi Mi 11</li>
+            <li>LG Velvet</li>
+        </ul>
+        <p id="searchResult">검색한 결과가 존재하지 않습니다.</p>
+    </div>
+</body>
+</html>
