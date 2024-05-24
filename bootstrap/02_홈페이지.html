@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <title>부트스트랩 홈페이지</title>
     <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        .card-img-top{
+            object-fit: cover;
+            /*
+            object-fit : 이미지나 비디오를 틀 안에 어떻게 맞춰서 작성할 지 선택
+            cover : 이미지나 비디오의 틀 비율을 유지하면서 틀 안에 완전히 채워지도록 조정
+
+            */
+            height: 200px;
+        }
+    </style>
 </head>
 <body>
     <!--네비게이션 바-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <a href="#" class="navbar-brand">브랜드명/위치</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span><!--네비게이션 아이콘 위치-->
@@ -18,10 +29,10 @@
                     <a href="#" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">게시판</a>
+                    <a href="04_게시판.html" class="nav-link">게시판</a>
                 </li>
                 <li class="nav-item">
-                    <a href="이미지갤러리.html" class="nav-link">이미지 갤러리</a>
+                    <a href="03_이미지갤러리.html" class="nav-link">이미지 갤러리</a>
                 </li>
             </ul>
         </div>
@@ -30,9 +41,10 @@
 
 
     <div class="container"><!--전체틀-->
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-md-4">
-                <div class="card">
+                <div class="card text-bg-warning">
+                    <div class="card-header">Header</div>
                     <div class="card-body">
                         <img src="딸기.jpg" class="card-img-top">
                         <h5 class="card-title">카드타이틀</h5>
@@ -51,7 +63,7 @@
                         <p class="card-text">
                             딸기 컷
                         </p>
-                        <a href="#" class="btn btn-primary">구경하기</a>
+                        <a href="#" class="btn btn-outline-primary">구경하기</a>
                     </div>
                 </div>
             </div><!--col = 세로, md-4 = 중간 사이즈 4칸 차지-->      
@@ -69,9 +81,7 @@
             </div><!--col = 세로, md-4 = 중간 사이즈 4칸 차지-->
         </div><!--가로-->
     
-    <br>
-    
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-4">
                 <div class="card">
                     <div class="card-body">
