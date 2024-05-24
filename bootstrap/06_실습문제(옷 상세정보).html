@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>세부 정보</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        .footer{
+            background-color: black;
+            color:white;
+            padding: 0.5rem 0;/*16px*/
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+        .footer a{
+            color:white;
+            text-decoration: none;
+        }
+        .footer a:hover{
+            text-decoration: underline;/*마우스를 a태그 위에 올리면 밑줄*/
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a href="#" class="navbar-brand">옷 판매 사이트</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span><!--네비게이션 아이콘 위치-->
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav ">
+                <li class="nav-item active">
+                    <a href="#" class="nav-link ">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Shop</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link ">Cart <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-0-square" viewBox="0 0 16 16">
+                        <path d="M7.988 12.158c-1.851 0-2.941-1.57-2.941-3.99V7.84c0-2.408 1.101-3.996 2.965-3.996 1.857 0 2.935 1.57 2.935 3.996v.328c0 2.408-1.101 3.99-2.959 3.99M8 4.951c-1.008 0-1.629 1.09-1.629 2.895v.31c0 1.81.627 2.895 1.629 2.895s1.623-1.09 1.623-2.895v-.31c0-1.8-.621-2.895-1.623-2.895"/>
+                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"/>
+                      </svg>        </a>
+         
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container my-5">
+        <h1 class="mb-3">옷 상세 정보</h1>
+        <div class="row">
+            <div class="col-5">
+                <img src="이미지들/바지.png" class="img-fluid">
+            </div>
+            <div class="col-7">
+                <h3>5부 반바지</h3>
+                <p>이 5부 반바지는 스타일과 편안함을 동시에 제공하는 필수 아이템입니다.가볍고 통기성이 좋은
+                    소재로 제작되어 여름철에도 쾌적하게 착용할 수 있습니다. 또한 다양한 색상과 디자인으로 어떤 상의와도 잘 어울리며, 
+                    캐주얼한 일상복부터 야외 활동까지 다양한 상황에서 활용할 수 있습니다. 허리 밴딩과 조절 가능한 끈으로 편안한 착용감을 
+                    제공하며, 양쪽 주머니가 있어 실용성도 뛰어납니다.
+                </p>
+                <a href="06_실습문제(옷가게).html" class="btn btn-dark">돌아가기</a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 브랜드명. All Rights Reserved.</p>
+            <p>
+                <a href="#">개인정보처리방침</a> | <a href="#">이용약관</a>
+            </p>
+        </div>
+    </footer>
+</body>
+<script src="bootstrap.bundle.min.js"></script>
+</html>
