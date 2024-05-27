@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>이미지 여러개 가져오기</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="../jQuery/jquery-3.7.1.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>사진 2장 업로드</h2>
+        <form class="row">  
+        <div class="col-2">
+            <label>사진 선택</label>
+            <input type="file" id="사진선택"  accept="image/*" multiple>
+            <!-- multiple : 다중 선택 -->
+        </div>
+       
+        <div class="col-1">
+            <img src="#" id="이미지1번" class="d-none img-fluid">
+        </div>
+        
+        <div class="col-1">
+            <img src="#" id="이미지2번" class="d-none img-fluid">
+        </div>
+        
+        <div class="col-1">
+            <img src="#" id="이미지3번" class="d-none img-fluid">
+        </div>
+
+        <div class="col-1">
+            <img src="#" id="이미지4번" class="d-none img-fluid">
+        </div>
+        
+        <div class="col-1">
+            <img src="#" id="이미지5번" class="d-none img-fluid">
+        </div>
+        
+        <div class="col-1">
+            <img src="#" id="이미지6번" class="d-none img-fluid">
+        </div>
+                
+        <div class="col-1">
+            <img src="#" id="이미지7번" class="d-none img-fluid">
+        </div>
+
+
+                 
+        </form>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#사진선택").change(function(){
+
+                const files = this.files; //선택된 파일들 가져오기
+
+                for(let i = 0; i<files.length; i++){
+                    if(files){
+                        const 파일읽기1 = new FileReader();
+                        파일읽기1.onload = function(e){
+                            $("#이미지"+(i+1)+"번").attr('src', e.target.result).removeClass('d-none');
+                            console.log("이미지번호" + (i+1));
+                        }
+                        파일읽기1.readAsDataURL(files[i]);
+                        console.log("files번호" + i);
+                    }
+                    else{
+                        $("#이미지"+(i+1)+"번").addClass('d-none');
+                    }
+                    
+                }
+            /*    if(files){
+                    const 파일읽기1 = new FileReader();
+                    파일읽기1.onload = function(e){
+                        $("#이미지1번").attr('src', e.target.result).removeClass('d-none');
+                    }
+                    파일읽기1.readAsDataURL(files[0]);
+                    
+
+                    const 파일읽기2 = new FileReader();
+                    파일읽기2.onload = function(e){
+                        $("#이미지2번").attr('src', e.target.result).removeClass('d-none');
+                    }
+                    파일읽기2.readAsDataURL(files[1]);
+                    
+
+                    const 파일읽기3 = new FileReader();
+                    파일읽기3.onload = function(e){
+                        $("#이미지3번").attr('src', e.target.result).removeClass('d-none');
+                    }
+                    파일읽기3.readAsDataURL(files[2]);
+
+                    const 파일읽기4 = new FileReader();
+                    파일읽기4.onload = function(e){
+                        $("#이미지4번").attr('src', e.target.result).removeClass('d-none');
+                    }
+                    파일읽기4.readAsDataURL(files[3]);
+
+                    const 파일읽기5 = new FileReader();
+                    파일읽기5.onload = function(e){
+                        $("#이미지5번").attr('src', e.target.result).removeClass('d-none');
+                    }
+                    파일읽기5.readAsDataURL(files[4]);
+
+                    const 파일읽기6 = new FileReader();
+                    파일읽기6.onload = function(e){
+                        $("#이미지6번").attr('src', e.target.result).removeClass('d-none');
+                    }
+                    파일읽기6.readAsDataURL(files[5]);
+
+                    const 파일읽기7 = new FileReader();
+                    파일읽기7.onload = function(e){
+                        $("#이미지7번").attr('src', e.target.result).removeClass('d-none');
+                    }
+                    파일읽기7.readAsDataURL(files[6]);
+
+                }
+                else{
+                    $("#이미지보이기").addClass('d-none');
+                }*/
+            })
+        })
+    </script>
+</body>
+</html>
