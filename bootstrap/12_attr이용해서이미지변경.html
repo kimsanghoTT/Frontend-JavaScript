@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attr이미지변경</title>
+    <script src="../jQuery/jquery-3.7.1.min.js"></script>
+    <script src="bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        .바지꾸미기{
+            width: 300px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h2>클릭하면 이미지가 변경</h2>
+        <img src="이미지들/바지.png" 
+        id="imageChanging" 
+        alt="바지" 
+        class="img-fluid 바지꾸미기" 
+        onclick="클릭하기()">
+    </div>
+    <script>
+        function 클릭하기(){
+            const 이미지 = $("#imageChanging");
+            
+            //만약 이미지 주소가 바지로 설정돼있다면 긴바지로 변경
+            if(이미지.attr('src') == '이미지들/바지.png'){
+                이미지.attr({'src': '이미지들/긴바지.png', 'alt' : '긴바지'}); // 주소값을 긴바지로 변경
+
+            }
+            else{
+                //src가 긴바지로 되어있으면 바지로 되돌리기
+                이미지.attr({'src': '이미지들/바지.png', 'alt' : '바지'});
+            }
+        }
+    </script>
+</body>
+</html>
