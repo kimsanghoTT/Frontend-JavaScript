@@ -12,20 +12,20 @@
         <form id="uploadForm">
             <div class="mb-3">
                 <label class="form-label">사진 제목</label>
-                <input type="file" class="form-control" id ="setImage" accept="image/*">
+                <input type="file" class="form-control" id ="이미지가져오기" accept="image/*">
                 <!-- accept="image/*" : 이미지 파일만 받음-->
             </div>
             <div class="mb-3">
                 <!-- input 에서 가져온 이미지를 img 태그에서 보여주기 -->
-                <img id="viewingImage" src="#" class="img-fluid d-none">
+                <img id="이미지보이기" src="#" class="img-fluid d-none">
                 <!-- d-none : display-none 으로, 엑박 숨기기 -->
             </div>
-            <button type="submit" class="btn btn-primary" id="이미지보이기">업로드</button>
+            <button type="submit" class="btn btn-primary">업로드</button>
         </form>
     </div>
     <script>
         $(document).ready(function(){
-            $("#viewingImage").change(function(){//input태그 바라보기
+            $("#이미지가져오기").change(function(){//input태그 바라보기
                 const file = this.files[0];
                 //이미지 보이기라는 img 태그에 가장 첫 번쨰로 올린 이미지를 보여줌
                 //file에는 다양한 파일들이 존재할 수 있기 때문에 0
@@ -42,14 +42,30 @@
                 */
                 if(file){
                     //만약 파일을 추가한다면
+
                     const 파일읽기 = new FileReader();
+                    //가져온 파일을 읽기 위해 FileReader라는 JS에 있는 기능 가져오기
+
                     파일읽기.onload =function(e){
-                        $("viewingImage").attr('src', e.target.result).removeClass('d-none');
+                        //onload : FileReader로 원하는 파일이 읽혔을 때 기능을 실행
+                        //파일 읽기가 안되면 onload 기능 자체가 실행되지 않음
+
+                        $("#이미지보이기").attr('src', e.target.result).removeClass('d-none');
+                        //#이미지보이기-> id 이름이 '이미지보이기'인 태그를 선택
+                        // attr = attribute 속성 설정
+                        //src(이미지주소) 설정
+                        //e.target.result : 파일이 성공적으로 읽힌 다음 url 주소값 가져오기
+                        //removeClass() : 위에서 설정한 d-none 삭제. -> 이미지를 볼 수 있게 설정
+                    
                     }
                     파일읽기.readAsDataURL(file);
+                    //이미지 파일을 읽어와서 사람들이 볼 수 있는 값으로 변환하고
+                    //최종적으로 이미지를 보여는 단계.
+
                 }
                 else{
-                    $("#viewingImage").addClass('d-none');
+                    $("#이미지보이기").addClass('d-none');
+                    //만약 선택한 이미지가 없으면 다시 d-none 클래스 추가
                 }
             });
         });
