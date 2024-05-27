@@ -26,19 +26,19 @@
     <script>
         $(document).ready(function(){
             $("#viewingImage").change(function(){//input태그 바라보기
-                const file = this.file[0];
+                const file = this.files[0];
                 //이미지 보이기라는 img 태그에 가장 첫 번쨰로 올린 이미지를 보여줌
                 //file에는 다양한 파일들이 존재할 수 있기 때문에 0
                 //파일의 경우 다중선택이 가능하다는 보장이 기본으로 설정돼있음
                 /*
-                
+
+                Cannot read properties of undefined (reading '0') 
+
                 file 대신 files를 사용해야함.
                 -> <input type="file"> input 태그가 애초에 다중 파일 업로드를 지원하기 때문
                 -> 1개의 파일만 업로드만 할 경우에는 files[0]를 써서
                 첫 번째로 선택된 파일만 보여주겠다 표기
-                
-                
-                
+            
                 */
                 if(file){
                     //만약 파일을 추가한다면
