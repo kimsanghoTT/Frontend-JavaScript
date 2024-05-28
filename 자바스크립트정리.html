@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트정리</title>
+</head>
+<body>
+    <h1>JS 개념정리</h1>
+    <h2>1. const, var, let 정리</h2>
+    <pre>
+        var : 재선언 가능. 값 변경(재할당) 가능(사용을 많이 하지 않음)
+        ex) var 변수 = 0;
+            var 변수 = 1; //재선언
+                변수 = 2; //재할당
+
+        let : 재선언 불가능. 값 변경(재할당) 가능(java의 변수와 매우 유사)
+        ex) let 변수 = 0;
+            let 변수 = 1;  => 불가능
+            변수 = 1;      => 가능
+
+        const : 재선언 불가능. 값 변경(재할당) 불가능(java의 상수)
+
+        재선언, 재할당이란.
+        재선언 : 다시 변수명에 대해 정의를 내리는 것
+        재할당 : 값에 다시 새로운 값을 저장하는 것
+    </pre>
+    <table border="1">
+        <tr>
+            <th>자료형</th>
+            <th>재선언</th>
+            <th>재할당</th>
+        </tr>
+        <tr>
+            <td>const</td>
+            <td>x</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>var</td>
+            <td>o</td>
+            <td>o</td>
+        </tr>
+        <tr>
+            <td>let</td>
+            <td>x</td>
+            <td>o</td>
+        </tr>
+    </table>
+
+    <h2>2. 바닐라 자바스크립트(Vanilla javaScript)</h2>
+    <p>추가적인 라이브러리나 프레임워크 없이 순수하게 자바스크립트 코드로 작성된 코드</p>
+    <p>라이브러리, 프레임워크의 대표적 종류 : jQuery, React</p>
+    <p>예시 : <code>document.getElementById("id값");</code></p>
+
+    <h2>3. JS의 객체</h2>
+    <p>객체란 JS에서 데이터를 구조화하여 저장하는데 사용하는 기본 단위</p>
+    <p>키(key)와 값(value) 한 쌍으로 이루어져있음</p>
+    <p>객체는 {} 중괄호를 사용해서 정의</p>
+    <p>키는 문자열, 값은 모든 데이터 타입 가능</p>
+    <pre>
+        const 사람객체 = {
+            'name' : '홍길동',
+            'age' : '33',
+            'greet' : 'function(){
+                alert("환영합니다.");
+            }'
+        }
+        사람 객체는 name, age라는 속성을 가지고, greet라는 메서드를 가짐
+
+        사람객체
+            속성 : name, age
+            메서드 : greet
+    </pre>
+
+    <h2>4. DOM(document Object Model)</h2>
+    <pre>
+        HTML과 같은 문서를 구조화된 표현으로 나타내서 문서의 태그를 각 객체로 표현
+
+        <button type="button" onclick="클릭버튼()" class="btn">버튼</button>
+
+        버튼 태그를 객체로 표현한다면
+
+        const button = {
+            type : "button",
+            클릭버튼() : function(){
+                alert("버튼이 클릭됨");
+            }
+            class : "btn"
+        }
+        속성 : type, class
+        메서드(기능) : 클릭버튼()
+    </pre>
+
+    <h2>5. 백엔드, 프론트엔드, 풀스택 개발자의 차이점</h2>
+    <pre>
+        백엔드
+        서버, 데이터베이스, DB와 프론트엔드의 연결고리
+        서버 측 언어(java, javaScript(node, js), python ...)
+        데이터베이스 언어(SQL(Oracle, mysql...)....)
+        주소값을 통한 개발 및 서버관리, 데이터 저장 및 처리를 관리
+
+        프론트엔드
+        HTML, CSS, javaScript 등을 사용해서 웹 페이지를 구성하고 디자인
+        쿠키, 세션, 캐시를 관리하기도 함
+        프레임워크(Bootstrap, React, jQuery, Vue ...) 등을 사용해서 개발
+
+        풀스택
+        프론트엔드와 백엔드 개발을 모두 수행
+        전체적인 구조를 이해하고 클라이언트와 서버 측 모두에서 작업이 가능
+    </pre>
+
+</body>
+</html>
